@@ -1,0 +1,20 @@
+syntax = "proto3";
+package gen;
+option go_package = "buf_demo/gen";
+
+message Joke {
+    string id = 1;
+    string joke = 2;
+}
+
+message JokeRequest {
+    string id = 1;
+}
+
+message JokeResponse {
+    Joke joke = 1;
+}
+
+service JokeService {
+    rpc GetJoke(JokeRequest) returns (JokeResponse) {};
+}
